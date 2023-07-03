@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg331"
+   width="1024"
+   height="384"
+   viewBox="0 0 1024 384"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs335" />
+  <g
+     id="g337">
+    <image
+       width="1024"
+       height="384"
+       preserveAspectRatio="none"
+       xlink:href="../../levelPart4.png"
+       id="image339" />
+    <path
+       style="fill:#000000"
+       d="m 0.59841103,192.43273 965.14959897,0.12463 0.0138,31.66704 -395.48696,4.95398 -88.92465,51.91445 -88.67574,-8.75256 5.92416,-48.24765 L 0,224 Z"
+       id="path388" />
+  </g>
+</svg>

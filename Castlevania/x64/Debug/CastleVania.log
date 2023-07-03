@@ -1,0 +1,64 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MiniGamePart1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  AnimatedSprite.cpp
+  BasicSprite.cpp
+  Camera.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\structs.h(26): message : see declaration of 'Rectf'
+  LevelTransition.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\structs.h(26): message : see declaration of 'Rectf'
+  Player.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Player.cpp(65,24): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Game.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\structs.h(26): message : see declaration of 'Rectf'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Game.cpp(128,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Game.cpp(134,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Level.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Level.cpp(102): warning C4715: 'Level::IsonStairs': not all control paths return a value
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Level.cpp(120): warning C4715: 'Level::IsOnGround': not all control paths return a value
+  main.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\structs.h(26): message : see declaration of 'Rectf'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+  pch.cpp
+  PowerUp.cpp
+  PowerUpManager.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+  Statue.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+  StatueManager.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+  UI.cpp
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(113,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(116,114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(116,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(116,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(116,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(121,114): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(121,96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(121,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(121,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(125,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(128,112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(128,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(128,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(128,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(133,112): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(133,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(133,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\Castlevania\UI.cpp(133,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CastleVania.vcxproj -> C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\Game 01\x64\Debug\Castelvania.exe
+  0 File(s) copied
+  0 File(s) copied
+  0 File(s) copied
+  0 File(s) copied
+  0 File(s) copied
