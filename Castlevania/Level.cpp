@@ -146,7 +146,12 @@ void Level::NextlevelPart(int levelPart)
 
 Rectf Level::GetBoundaries() 
 {
-	m_Boundaries = Rectf(0,0, m_spriteWidth * m_Scale,m_spriteHeight * m_Scale);
+	m_spriteWidth = m_pTexture->GetWidth() / m_RowIdx;
+	m_spriteHeight = m_pTexture->GetHeight() / m_colomsIdx;
+	m_Shape = GetShape();
+	m_Shape.left = 0;
+	m_Shape.bottom = 0;
+	m_Boundaries = Rectf(0, 0, m_spriteWidth * m_Scale, m_spriteHeight * m_Scale);
 	return m_Boundaries;
 }
 
