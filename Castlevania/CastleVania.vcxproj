@@ -159,6 +159,7 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="PowerUp.cpp" />
     <ClCompile Include="PowerUpManager.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Statue.cpp" />
     <ClCompile Include="StatueManager.cpp" />
     <ClCompile Include="UI.cpp" />
@@ -174,6 +175,7 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClInclude Include="pch.h" />
     <ClInclude Include="PowerUp.h" />
     <ClInclude Include="PowerUpManager.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Statue.h" />
     <ClInclude Include="StatueManager.h" />
     <ClInclude Include="UI.h" />

@@ -1,18 +1,20 @@
-#include "pch.h"
+  #include "pch.h"
 #include "PowerUpManager.h"
 #include <iostream>
 
-PowerUpManager::PowerUpManager(Level* level, Player* player):
-	m_PickUpSoundEffect{new SoundEffect{"Sounds/PowerupSound.wav"}},
+PowerUpManager::PowerUpManager(Level* level, Player* player, SoundManager* soundManager):
 	m_level{level},
-	m_player{player}
+	m_player{player},
+	m_SoundManager{soundManager},
+	m_PickUpSoundEffect{ nullptr }
 {
 	m_pItems = std::vector<PowerUp*>{};
+	m_PickUpSoundEffect = m_SoundManager->LoadSoundEffect("Sounds/PowerupSound.wav");
+
 }
 
 PowerUpManager::~PowerUpManager() 
 {
-	delete m_PickUpSoundEffect;
 	for (PowerUp* pUp : m_pItems)
 	{
 		delete pUp;
@@ -33,7 +35,7 @@ void PowerUpManager::Update(float elapsedSec) {
 }
 
 void PowerUpManager::Draw() const
-{
+{   
 	for (PowerUp* pUp : m_pItems) {
 		pUp->Draw();
 	}
@@ -47,7 +49,7 @@ bool PowerUpManager::HitItem(const Rectf& rect)
 		if (m_pItems[idx]->IsOverlapping(rect))
 		{
 			foundIdx = idx;
-			m_PickUpSoundEffect->Play(false);
+			m_SoundManager->PlaySoundEffect(m_PickUpSoundEffect, false);
 			if (m_pItems[idx]->GetType() == PowerUp::Type::Health)
 			{
 				m_player->m_playerHarts = m_player->m_playerHarts + 1;

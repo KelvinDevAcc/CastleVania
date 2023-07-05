@@ -8,11 +8,13 @@ Game::Game(const Window& window)
 	m_pCamera{ new Camera{  640.f , 500.f} },
 	m_pPlayer{ new Player{10,10,0.1f,2.f,1, Point2f(10,90)} },
 	m_pLevel{ new Level{} },
-	m_pPowerUpManager{ new PowerUpManager{m_pLevel, m_pPlayer} },
-	m_pStatueManager{ new StatueManager{} },
 	m_pUI{ new UI{m_pPlayer} },
-	m_pSoundstream{ new SoundStream{"Sounds/Castlevania_-_NES_-_Vampire_Killer_Background.ogg"} },
+	m_SoundManager{ new SoundManager{} },
+	m_pPowerUpManager{ new PowerUpManager{m_pLevel, m_pPlayer, m_SoundManager} },
+	m_pStatueManager{ new StatueManager{} },
+	//m_pSoundstream{ new SoundStream{"Sounds/Castlevania_-_NES_-_Vampire_Killer_Background.ogg"} },
 	m_pLevelTransition{ new LevelTransition{m_pLevel,m_pPlayer, m_pStatueManager, m_pPowerUpManager, m_pCamera} },
+	
 
 	m_CanPress{ true },
 	m_WalkSpeed{ 133 },
@@ -31,7 +33,9 @@ Game::~Game( )
 void Game::Initialize( )
 {
 	m_pCamera->SetlevelBoundaries(m_pLevel->GetBoundaries());
-	m_pSoundstream->Play(true);
+	SoundStream* soundStream = m_SoundManager->LoadSoundStream("Sounds/Castlevania_-_NES_-_Vampire_Killer_Background.ogg");
+	m_SoundManager->PlaySoundStream(true);
+	//m_pSoundstream->Play(true);
 	AddLevelPart1();
 }
 
@@ -40,12 +44,12 @@ void Game::Cleanup()
 	delete m_pCamera;
 	delete m_pPlayer;
 	delete m_pLevel;
+	delete m_pLevelTransition;
+	//delete m_pSoundstream;
+	delete m_pUI;
+	delete m_SoundManager;
 	delete m_pStatueManager;
 	delete m_pPowerUpManager;
-	delete m_pLevelTransition;
-	delete m_pSoundstream;
-	delete m_pUI;
-
 }
 
 void Game::Update( float elapsedSec )
@@ -109,17 +113,20 @@ void Game::ProcessKeyDownEvent( const SDL_KeyboardEvent & e )
 		{
 		case SDLK_EQUALS:
 			m_AudioVolume = (m_AudioVolume != 100) ? m_AudioVolume + 10 : m_AudioVolume;
-			m_pSoundstream->SetVolume(m_AudioVolume);
+			//m_pSoundstream->SetVolume(m_AudioVolume);
+			m_SoundManager->SetSoundVolume(m_AudioVolume);
 			std::cout << "Volume: " << m_AudioVolume << std::endl;
 			break;
 		case SDLK_MINUS:
 			m_AudioVolume = (m_AudioVolume != 0) ? m_AudioVolume - 10 : m_AudioVolume;
-			m_pSoundstream->SetVolume(m_AudioVolume);
+			//m_pSoundstream->SetVolume(m_AudioVolume);
+			m_SoundManager->SetSoundVolume(m_AudioVolume);
 			std::cout << "Volume: " <<m_AudioVolume << std::endl;
 			break;
 		case SDLK_m:
 			m_AudioVolume = 0;
-			m_pSoundstream->SetVolume(m_AudioVolume);
+			//m_pSoundstream->SetVolume(m_AudioVolume);
+			m_SoundManager->SetSoundVolume(m_AudioVolume);
 			std::cout << "audio muted";
 			break;
 		

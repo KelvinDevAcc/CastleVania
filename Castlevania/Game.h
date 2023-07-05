@@ -9,6 +9,7 @@
 #include "Level.h"
 #include "LevelTransition.h"
 #include <SoundStream.h>
+#include "SoundManager.h"
 
 
 
@@ -40,11 +41,13 @@ private:
 	Camera* m_pCamera;
 	Player* m_pPlayer;
 	Level* m_pLevel;
+	UI* m_pUI;
+	SoundManager* m_SoundManager;
 	StatueManager* m_pStatueManager;
 	PowerUpManager* m_pPowerUpManager;
-	UI* m_pUI;
-	SoundStream* m_pSoundstream;
+	//SoundStream* m_pSoundstream;
 	LevelTransition* m_pLevelTransition;
+	
 
 	bool m_CanPress;
 

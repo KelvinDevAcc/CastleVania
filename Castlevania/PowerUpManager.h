@@ -2,6 +2,7 @@
 #include "PowerUp.h"
 #include <vector>
 #include <SoundEffect.h>
+#include "SoundManager.h"
 #include "Level.h"
 #include "structs.h"
 #include "Player.h"
@@ -9,7 +10,7 @@
 class PowerUpManager final
 {
 public:
-	PowerUpManager(Level* level, Player* player );
+	PowerUpManager(Level* level, Player* player, SoundManager* soundManager );
 	~PowerUpManager( );
 	PowerUpManager(const PowerUpManager&) = delete;
 	PowerUpManager& operator=(const PowerUpManager&) = delete;
@@ -26,6 +27,7 @@ public:
 
 private:
 	std::vector<PowerUp*> m_pItems;
+	SoundManager* m_SoundManager;
 	SoundEffect* m_PickUpSoundEffect;
 	Level* m_level;
 	Player* m_player;

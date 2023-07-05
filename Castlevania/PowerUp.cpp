@@ -2,7 +2,6 @@
 #include "PowerUp.h"
 #include "texture.h"
 #include "utils.h"
-#include <iostream>
 
 
 PowerUp::PowerUp(Level* level, int rows, int coloms, float scale, int startrow, Point2f bottomleft, Type type):

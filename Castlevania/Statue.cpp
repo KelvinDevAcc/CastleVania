@@ -38,15 +38,12 @@ void Statue::DropItem()
 	switch (m_Type)
 	{
 	case Statue::DropType::Healt:
-		std::cout << "drop Healt";
 		m_pPowerUpManager->AddItem(10, 20, 2.f, 1, Point2f{m_Desrect.left, m_Desrect.bottom + 50}, PowerUp::Type::Health);
 		break;
 	case Statue::DropType::Wip:
-		std::cout << "drop Wip";
 		m_pPowerUpManager->AddItem(10, 20, 2.f, 1, Point2f{ m_Desrect.left, m_Desrect.bottom + 50 }, PowerUp::Type::Wip);
 		break;
 	case Statue::DropType::Trowingknife:
-		std::cout << "drop Wip";
 		m_pPowerUpManager->AddItem(10, 20, 2.f, 1, Point2f{ m_Desrect.left, m_Desrect.bottom + 50 }, PowerUp::Type::Trowingknife);
 		break;
 	default:
