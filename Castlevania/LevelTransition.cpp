@@ -2,22 +2,22 @@
 #include "LevelTransition.h"
 #include <iostream>
 
-LevelTransition::LevelTransition(Level* level, Player* player, StatueManager* statueManager, PowerUpManager* PowerupManager, Camera* camera):
+LevelTransition::LevelTransition(Level* level, Player* player, StatueManager* statueManager, PowerUpManager* PowerupManager, Camera* camera, SoundManager* soundManager):
 	m_plevel{ level },
 	m_pPlayer{player}, 
 	m_pPowerUpManager{ PowerupManager },
 	m_pStatueManager{statueManager},
 	m_pCamera{camera}, 
-	m_pSoundStream{ new SoundEffect{"Sounds/TrasitionSound.wav"} }
+	m_SoundManager{soundManager}
 
 {
 	m_ColiderShape = Rectf(400, 60, 20, 20);
 	m_EndColiderShape = Rectf(400, 60, 20, 20);
+	m_pSoundStream = m_SoundManager->LoadSoundEffect("Sounds/DestroyStatic.wav");
 }
 
 LevelTransition::~LevelTransition()
 {
-	delete m_pSoundStream;
 }
 void LevelTransition::Draw()
 {
@@ -84,8 +84,8 @@ void LevelTransition::Playanimation()
 {
 	m_pCamera->FadeOut(1.5f);
 	m_pPlayer->m_Velocity.x  = 133;
-	m_pSoundStream->Play(false);
-	
+	m_SoundManager->PlaySoundEffect(m_pSoundStream, false);
+
 }
 
 bool LevelTransition::IsOverlapping(Rectf player, Rectf hittableObject)

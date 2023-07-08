@@ -66,6 +66,8 @@ void Player::Draw()
 	glTranslatef(-m_Shape.left - 73, -m_Shape.bottom, 0);
 	AnimatedSprite::Draw();
 	glPopMatrix();
+	//utils::DrawRect(m_Shape, true);
+	//utils::DrawRect(m_PlayerHitBox, true);
 }
 
 void Player::Damage(int amount)

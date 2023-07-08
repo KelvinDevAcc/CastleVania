@@ -2,16 +2,16 @@
 #include "StatueManager.h"
 #include <iostream>
 
-StatueManager::StatueManager():
-	m_pDestroySoundEffect{ new SoundEffect{"Sounds/DestroyStatic.wav"}}
-
+StatueManager::StatueManager(SoundManager* soundmanager):
+	m_SoundManager{soundmanager}
 {
 	m_pItems = std::vector<Statue*>{};
+	m_pDestroySoundEffect = m_SoundManager->LoadSoundEffect("Sounds/DestroyStatic.wav");
+
 }
 
 StatueManager::~StatueManager()
 {
-	delete m_pDestroySoundEffect;
 	for (Statue* pUp : m_pItems)
 	{
 		delete pUp;
@@ -51,7 +51,7 @@ bool StatueManager::HitItem(const Rectf& rect)
 		{
 			foundIdx = idx;
 			m_pItems[idx]->DropItem();
-			m_pDestroySoundEffect->Play(false);
+			m_SoundManager->PlaySoundEffect(m_pDestroySoundEffect, false);
 		}
 	}
 	if (foundIdx >= 0)

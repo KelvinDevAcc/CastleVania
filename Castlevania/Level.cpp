@@ -24,6 +24,10 @@ Level::Level() : BasicSprite{1,1,2.f,1}
 void Level::DrawBackground()
 {
 	BasicSprite::Draw();
+	for (const std::vector<Point2f>& polygon : m_pStairsCollisionPoints)
+	{
+		utils::DrawPolygon(polygon, true);
+	}
 
 }
 

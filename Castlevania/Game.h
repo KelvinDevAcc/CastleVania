@@ -45,7 +45,6 @@ private:
 	SoundManager* m_SoundManager;
 	StatueManager* m_pStatueManager;
 	PowerUpManager* m_pPowerUpManager;
-	//SoundStream* m_pSoundstream;
 	LevelTransition* m_pLevelTransition;
 	
 

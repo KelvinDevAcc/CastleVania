@@ -2,13 +2,14 @@
 #include "Statue.h"
 #include <vector>
 #include <SoundEffect.h>
+#include "SoundManager.h"
 #include "structs.h"
 
 
 class StatueManager
 {
 public:
-	StatueManager();
+	StatueManager(SoundManager* soundmanager);
 	~StatueManager();
 	StatueManager(const StatueManager&) = delete;
 	StatueManager& operator=(const StatueManager&) = delete;
@@ -24,6 +25,7 @@ public:
 
 private:
 	std::vector<Statue*> m_pItems;
+	SoundManager* m_SoundManager;
 	SoundEffect* m_pDestroySoundEffect;
 };
 

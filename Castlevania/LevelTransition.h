@@ -4,13 +4,14 @@
 #include "StatueManager.h"
 #include "PowerUpManager.h"
 #include <SoundEffect.h>
+#include "SoundManager.h"
 #include "Camera.h"
 #include <utils.h>
 
 class LevelTransition
 {
 public: 
-	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* PowerupManager , Camera* camera);
+	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* PowerupManager , Camera* camera, SoundManager* soundMAnager);
 	~LevelTransition();
 	void Draw();
 	void Update();
@@ -31,5 +32,6 @@ private:
 	PowerUpManager* m_pPowerUpManager;
 	Camera* m_pCamera;
 	SoundEffect* m_pSoundStream;
+	SoundManager* m_SoundManager;
 };
 

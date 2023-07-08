@@ -1,16 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MiniGamePart1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Game.cpp
-C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\structs.h(26): message : see declaration of 'Rectf'
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
-C:\Users\adela\Documents\GitHub\CastleVania\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
-C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Game.cpp(135,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Game.cpp(141,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  main.cpp
-C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Camera.h(5,12): warning C4099: 'Rectf': type name first seen using 'struct' now seen using 'class'
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\structs.h(26): message : see declaration of 'Rectf'
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\SoundEffect.h(3,16): warning C4099: 'Mix_Chunk': type name first seen using 'struct' now seen using 'class'
-C:\Users\adela\Documents\GitHub\CastleVania\Libraries\SDLMixer\SDL2_mixer-2.6.3\include\SDL_mixer.h(228): message : see declaration of 'Mix_Chunk'
+  Player.cpp
+C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Player.cpp(65,24): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
   CastleVania.vcxproj -> C:\Users\adela\Documents\GitHub\CastleVania\x64\Debug\Castelvania.exe
   0 File(s) copied
   0 File(s) copied

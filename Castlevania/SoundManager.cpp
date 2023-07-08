@@ -134,7 +134,6 @@
         for (auto soundEffect : m_soundEffects)
         {
             soundEffect->SetVolume(value);
-            std::cout << soundEffect->GetVolume();
         }
 
         if (m_soundStream != nullptr)
