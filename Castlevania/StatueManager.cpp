@@ -25,7 +25,8 @@ Statue* StatueManager::AddItem(int rows, int coloms, float framesec, float scale
 	return pStatue;
 }
 
-void StatueManager::Update(float elapsedSec) {
+void StatueManager::Update(float elapsedSec) const
+{
 	for (Statue* pUp : m_pItems) {
 		pUp->Update(elapsedSec);
 	}

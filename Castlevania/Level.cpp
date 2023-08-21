@@ -21,7 +21,7 @@ Level::Level() : BasicSprite{1,1,2.f,1}
 }
 
 
-void Level::DrawBackground()
+void Level::DrawBackground() const
 {
 	BasicSprite::Draw();
 	for (const std::vector<Point2f>& polygon : m_pStairsCollisionPoints)
@@ -31,7 +31,7 @@ void Level::DrawBackground()
 
 }
 
-void Level::HandelCollision(Rectf& actorShape, Vector2f& actorVelocity)
+void Level::HandelCollision(Rectf& actorShape, Vector2f& actorVelocity) const
 {
 
 	Point2f topPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + actorShape.height };
@@ -70,7 +70,7 @@ void Level::HandelCollision(Rectf& actorShape, Vector2f& actorVelocity)
 
 
 }
-void Level::HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity)
+void Level::HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity) const
 {
 	Point2f topPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + actorShape.height };
 	Point2f bottomPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + 1};
@@ -87,9 +87,9 @@ void Level::HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity)
 	}
 
 }
-bool Level::IsonStairs(const Rectf& actorShape) const
+bool Level::IsOnStairs(const Rectf& actorShape) const
 {
-	utils::HitInfo hitinfo{};
+	utils::HitInfo hitInfo{};
 
 	Point2f topPoint{ actorShape.left + actorShape.width / 2,actorShape.bottom + actorShape.height };
 	Point2f bottomPoint{ actorShape.left + actorShape.width / 2, actorShape.bottom + 1 };
@@ -97,11 +97,14 @@ bool Level::IsonStairs(const Rectf& actorShape) const
 
 	for (size_t i = 0; i < m_pStairsCollisionPoints.size(); i++)
 	{
-		if (utils::Raycast(m_pStairsCollisionPoints[i], topPoint, bottomPoint, hitinfo))
+		if (utils::Raycast(m_pStairsCollisionPoints[i], topPoint, bottomPoint, hitInfo))
 		{
 			return true;
 		}
 	}
+
+
+	return false;
 
 }
 
@@ -119,11 +122,14 @@ bool Level::IsOnGround(const Rectf& actorShape) const
 		{
 			return true;
 		}
+		else
+			return false;
 	}
 
+	return false;
 }
 
-void Level::NextlevelPart(int levelPart) 
+void Level::NextLevelPart(int levelPart) 
 {
 	m_levelPart = levelPart;
 	m_levelPart = (m_levelPart != 5) ? m_levelPart + 1 : m_levelPart;

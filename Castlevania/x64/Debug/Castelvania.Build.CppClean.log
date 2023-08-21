@@ -2,8 +2,10 @@ c:\users\adela\documents\github\castlevania\castlevania\x64\debug\castelvania.pc
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\vc143.pdb
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\vc143.idb
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\animatedsprite.obj
+c:\users\adela\documents\github\castlevania\castlevania\x64\debug\basicenemy.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\basicsprite.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\camera.obj
+c:\users\adela\documents\github\castlevania\castlevania\x64\debug\enemymanager.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\leveltransition.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\player.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\game.obj
@@ -16,6 +18,7 @@ c:\users\adela\documents\github\castlevania\castlevania\x64\debug\soundmanager.o
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\statue.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\statuemanager.obj
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\ui.obj
+c:\users\adela\documents\github\castlevania\castlevania\x64\debug\zombie.obj
 c:\users\adela\documents\github\castlevania\x64\debug\castelvania.exe
 c:\users\adela\documents\github\castlevania\castlevania\x64\debug\castelvania.ilk
 c:\users\adela\documents\github\castlevania\x64\debug\castelvania.pdb

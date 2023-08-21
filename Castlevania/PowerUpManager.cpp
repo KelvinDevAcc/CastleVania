@@ -3,10 +3,10 @@
 #include <iostream>
 
 PowerUpManager::PowerUpManager(Level* level, Player* player, SoundManager* soundManager):
-	m_level{level},
-	m_player{player},
 	m_SoundManager{soundManager},
-	m_PickUpSoundEffect{ nullptr }
+	m_PickUpSoundEffect{nullptr},
+	m_level{level},
+	m_player{player}
 {
 	m_pItems = std::vector<PowerUp*>{};
 	m_PickUpSoundEffect = m_SoundManager->LoadSoundEffect("Sounds/PowerupSound.wav");
@@ -15,7 +15,7 @@ PowerUpManager::PowerUpManager(Level* level, Player* player, SoundManager* sound
 
 PowerUpManager::~PowerUpManager() 
 {
-	for (PowerUp* pUp : m_pItems)
+	for (const PowerUp* pUp : m_pItems)
 	{
 		delete pUp;
 	}
@@ -28,7 +28,8 @@ PowerUp* PowerUpManager::AddItem(int rows, int coloms, float scale, int startrow
 	return pPowerUp;
 }
 
-void PowerUpManager::Update(float elapsedSec) {
+void PowerUpManager::Update(float elapsedSec) const
+{
 	for (PowerUp* pUp : m_pItems) {
 		pUp->Update(elapsedSec);
 	}

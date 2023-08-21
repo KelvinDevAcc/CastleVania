@@ -5,9 +5,9 @@ class AnimatedSprite
 {
 public:
 	AnimatedSprite(int rows, int coloms,float framesec, float scale,int startrow);
-	~AnimatedSprite();
-	void Draw();
-	void Update(float elapsedSec);
+	virtual ~AnimatedSprite();
+	virtual void Draw();
+	virtual void Update(float elapsedSec);
 	Rectf GetShape() const;
 	Rectf m_Shape;
 	Rectf m_Desrect;

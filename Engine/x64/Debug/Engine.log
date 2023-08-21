@@ -85,15 +85,15 @@ C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(142): message : fee
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(175): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(173): message : index 'angle' range checked by comparison on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(175): message : feeds call on this line
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(256): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(254): message : index 'idx' range checked by comparison on this line
-C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(256): message : feeds call on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(206): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(204): message : index 'angle' range checked by comparison on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(206): message : feeds call on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(232): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(230): message : index 'angle' range checked by comparison on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(232): message : feeds call on this line
+C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(256): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
+C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(254): message : index 'idx' range checked by comparison on this line
+C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(256): message : feeds call on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(273): warning C5045: Compiler will insert Spectre mitigation for memory load if /Qspectre switch specified
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(271): message : index 'idx' range checked by comparison on this line
 C:\Users\adela\Documents\GitHub\CastleVania\Engine\utils.cpp(273): message : feeds call on this line

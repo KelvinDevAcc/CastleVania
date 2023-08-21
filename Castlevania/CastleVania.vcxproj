@@ -149,8 +149,10 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
+    <ClCompile Include="BasicEnemy.cpp" />
     <ClCompile Include="BasicSprite.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="LevelTransition.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -163,11 +165,14 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClCompile Include="Statue.cpp" />
     <ClCompile Include="StatueManager.cpp" />
     <ClCompile Include="UI.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
+    <ClInclude Include="BasicEnemy.h" />
     <ClInclude Include="BasicSprite.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="LevelTransition.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Game.h" />
@@ -179,6 +184,7 @@ xcopy "$(SolutionDir)Resources\*.*" "$(TargetDir)" /y /d /s</Command>
     <ClInclude Include="Statue.h" />
     <ClInclude Include="StatueManager.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -10,12 +10,12 @@ public:
 	Level();
 	~Level() = default;
 
-	void DrawBackground();
-	void HandelCollision(Rectf& actorShape, Vector2f& actorVelocity);
-	void HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity);
-	bool IsonStairs(const Rectf& actorShape) const;
+	void DrawBackground() const;
+	void HandelCollision(Rectf& actorShape, Vector2f& actorVelocity) const;
+	void HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity) const;
+	bool IsOnStairs(const Rectf& actorShape) const;
 	bool IsOnGround(const Rectf& actorShape) const;
-	void NextlevelPart(int levelPart);
+	void NextLevelPart(int levelPart);
 	Rectf GetBoundaries();
 	Rectf LevelShape;
 	int m_levelPart;

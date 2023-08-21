@@ -5,21 +5,22 @@
 #include "PowerUpManager.h"
 #include <SoundEffect.h>
 #include "SoundManager.h"
+#include "EnemyManager.h"
+#include "Zombie.h"
 #include "Camera.h"
 #include <utils.h>
 
-class LevelTransition
+class LevelTransition 
 {
 public: 
-	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* PowerupManager , Camera* camera, SoundManager* soundMAnager);
-	~LevelTransition();
-	void Draw();
+	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* PowerupManager , Camera* camera, SoundManager* soundMAnager,EnemyManager* enemymanager );
+	~LevelTransition() = default;
 	void Update();
-	void SwitchOnLevel();
-	void Playanimation();
-	bool IsOverlapping(Rectf Player, Rectf hittableObject);
+	void SwitchOnLevel() const;
+	void PlayAnimation() const;
+	static bool IsOverlapping(Rectf Player, Rectf hittableObject);
 
-	void AddLevelPart2();
+	void AddLevelPart2() const;
 
 
 
@@ -33,5 +34,6 @@ private:
 	Camera* m_pCamera;
 	SoundEffect* m_pSoundStream;
 	SoundManager* m_SoundManager;
+	EnemyManager* m_pEnemyManager;
 };
 

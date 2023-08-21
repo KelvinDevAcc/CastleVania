@@ -19,7 +19,7 @@ public:
 
 	PowerUp* AddItem(int rows, int coloms, float scale, int startrow, Point2f bottomleft, PowerUp::Type Type);
 	void ClearStatueVec();
-	void Update( float elapsedSec );
+	void Update( float elapsedSec ) const;
 	void Draw( ) const;
 
 	size_t Size( ) const;

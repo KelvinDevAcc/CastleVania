@@ -12,19 +12,19 @@ public:
 	void SetlevelBoundaries(const Rectf& levelBounderies);
 	void Transform(const Rectf& target);
 	Point2f Track(const Rectf& target) const;
-	void clamp(Point2f& bottomLeftPos);
+	void clamp(Point2f& bottomLeftPos) const;
 
-	Point2f m_bottomleft;
+	Point2f m_BottomLeft;
 
 	void FadeIn(float duration);
 	void FadeOut(float duration);
 
 
 private:
-	float m_height;
+	float m_Height;
 	Rectf m_LevelBoundaries;
-	const float m_Normalwitdh;
-	float m_width;
+	const float m_NormalWidth;
+	float m_Width;
 
 
 	bool m_fadeInActive;
