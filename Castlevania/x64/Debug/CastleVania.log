@@ -1,6 +1,22 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MiniGamePart1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  AnimatedSprite.cpp
+  BasicEnemy.cpp
+  BasicSprite.cpp
+  Camera.cpp
+  EnemyManager.cpp
+  LevelTransition.cpp
   Player.cpp
-C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\Player.cpp(63,24): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  Game.cpp
+  Level.cpp
+  main.cpp
+  pch.cpp
+  PowerUp.cpp
+  PowerUpManager.cpp
+  SoundManager.cpp
+  Statue.cpp
+  StatueManager.cpp
+  UI.cpp
+  Zombie.cpp
   CastleVania.vcxproj -> C:\Users\adela\Documents\GitHub\CastleVania\x64\Debug\Castelvania.exe
   0 File(s) copied
   0 File(s) copied

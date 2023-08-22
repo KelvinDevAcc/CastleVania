@@ -8,8 +8,9 @@ class Statue final: public AnimatedSprite
 {
 public:
 	enum class DropType{Healt,Wip,Trowingknife};
+
 	Statue(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, DropType type, PowerUpManager* powerUpManager);
-	~Statue() override = default;
+
 	void Draw() override;
 	void Update(float elpasedSec) override;
 	bool IsOverlapping(const Rectf rect) const;

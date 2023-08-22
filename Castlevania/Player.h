@@ -7,36 +7,37 @@ enum class ActionState
 	Idle,
 	moving,
 	jumping,
-	chrouching,
+	crouching,
 	hitting
 
 };
 class Player final : public AnimatedSprite
 {
 public:
+
 	Player(int rows, int coloms, float framesec, float scale,int startrow, Point2f bottomleft);
 	~Player() override = default;
+
 	void Update(float elapsed, Level* level);
 	void Draw() override;
 	void animation();
 	void Damage(int amount);
+	//void Move(int direction);
+
 
 	Vector2f m_Velocity{ 0.0f,0.0f };
 	ActionState m_ActionState{ ActionState::Idle };
-	Rectf m_PlayerHitBox;
 
-	int m_playerHealt;
+	int m_playerHealth;
 	int m_playerLives;
 	int m_playerHarts;
+	float m_WalkSpeed{};
+
 
 private:
 	const Color4f m_OnGroundColor;
 	const Color4f m_InAirColor;
 
-	const Vector2f m_GravityAccelaration;
-
-	
-
-
+	const float m_GravityAcceleration;
 };
 

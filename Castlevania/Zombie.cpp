@@ -13,9 +13,9 @@ Zombie::Zombie(int rows, int coloms, float framesec, float scale, int startrow, 
 	m_pTexture = new Texture("Images/Enemy's.png");
 	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
 	m_spriteHeight = m_pTexture->GetHeight() / m_RowIdx;
-	m_Shape = GetShape();
-	m_Shape.left = bottomleft.x;
-	m_Shape.bottom = bottomleft.y;
+	m_PlayerRect = GetShape();
+	m_PlayerRect.left = bottomleft.x;
+	m_PlayerRect.bottom = bottomleft.y;
 	m_colomsIdx = 2;
 }
 
@@ -29,16 +29,16 @@ void Zombie::Update(float elapsed)
 	if (m_MovingRight)
 	{
 
-		m_Shape.left += m_Speed * elapsed;
-		if (m_Shape.left + m_Shape.width >= 600) // Change direction when reaching the right side
+		m_PlayerRect.left += m_Speed * elapsed;
+		if (m_PlayerRect.left + m_PlayerRect.width >= 600) // Change direction when reaching the right side
 		{
 			//m_MovingRight = false;
 		}
 	}
 	else
 	{
-		m_Shape.left -= m_Speed * elapsed;
-		if (m_Shape.left <= 0) // Change direction when reaching the left side
+		m_PlayerRect.left -= m_Speed * elapsed;
+		if (m_PlayerRect.left <= 0) // Change direction when reaching the left side
 		{
 			
 		}
@@ -46,15 +46,15 @@ void Zombie::Update(float elapsed)
 
 	m_AttackDelayTime += elapsed;
 
-	if (BasicEnemy::IsOverlapping(m_player->m_PlayerHitBox))
+	if (BasicEnemy::IsOverlapping(m_player->m_PlayerRect))
 	{
-			if (m_AttackDelayTime > m_AttackSpeed)
-			{
+		if (m_AttackDelayTime > m_AttackSpeed)
+		{
 
-				std::cout << "Player hit by enemy\n";
-				m_player->Damage(1);
-				m_AttackDelayTime = 0;
-			}
+			std::cout << "Player hit by enemy\n";
+			m_player->Damage(1);
+			m_AttackDelayTime = 0;
+		}
 	}
 	
 	//// Gradually destroy the Zombie over time

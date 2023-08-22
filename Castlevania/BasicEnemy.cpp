@@ -6,8 +6,8 @@
 BasicEnemy::BasicEnemy(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft) :
 	AnimatedSprite(rows, coloms, framesec, scale, startrow)
 {
-	m_Shape.left = bottomleft.x;
-	m_Shape.bottom = bottomleft.y;
+	m_PlayerRect.left = bottomleft.x;
+	m_PlayerRect.bottom = bottomleft.y;
 }
 
 
@@ -25,7 +25,7 @@ void BasicEnemy::Draw()
 
 bool BasicEnemy::IsOverlapping(const Rectf& rect) const
 {
-	return utils::IsOverlapping(rect, m_Shape);
+	return utils::IsOverlapping(rect, m_PlayerRect);
 	// Implement additional overlapping check for the enemy
 }
 

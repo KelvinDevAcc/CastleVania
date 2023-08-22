@@ -6,7 +6,7 @@
 Game::Game(const Window& window)
 	:BaseGame{ window },
 	m_pCamera{ new Camera{  640.f , 500.f} },
-	m_pPlayer{ new Player{10,10,0.1f,2.f,1, Point2f(10,90)} },
+	m_pPlayer{ new Player{10,10,0.1f,2.f,1, Point2f(1400,90)} },
 	m_pLevel{ new Level{} },
 	m_pUI{ new UI{m_pPlayer} },
 	m_pSoundManager{ new SoundManager{} },
@@ -15,9 +15,9 @@ Game::Game(const Window& window)
 	m_pEnemyManager{new EnemyManager{}},
 	m_pLevelTransition{new LevelTransition{m_pLevel, m_pPlayer, m_pStatueManager, m_pPowerUpManager, m_pCamera, m_pSoundManager, m_pEnemyManager}},
 	m_CanPress{ true },
-	m_WalkSpeed{ 133 },
 	m_AudioVolume{ 0 },
-	m_OnStairs{false}
+	m_OnStairs{false},
+	m_WalkSpeed{133}
 {
 	Initialize();
 }
@@ -68,7 +68,7 @@ void Game::Update(float elapsedSec)
 	}
 	if (m_pPowerUpManager->Size() > 0)
 	{
-		m_pPowerUpManager->HitItem(m_pPlayer->m_Shape);
+		m_pPowerUpManager->HitItem(m_pPlayer->m_PlayerRect);
 	}
 	if (m_pUI->m_Timer == 0)
 	{
@@ -77,12 +77,13 @@ void Game::Update(float elapsedSec)
 
 	if (m_OnStairs)
 	{
-		m_pLevel->HandelUpCollision(m_pPlayer->m_Shape, m_pPlayer->m_Velocity);
+		m_pLevel->HandleStairCollision(m_pPlayer->m_PlayerRect, m_pPlayer->m_Velocity);
+
+		if (m_pLevel->IsOnGround(m_pPlayer->m_PlayerRect))
+			m_OnStairs = false;
 	}
-	else
-	{
-		m_pLevel->HandelCollision(m_pPlayer->m_Shape, m_pPlayer->m_Velocity);
-	}
+
+	m_pLevel->HandelCollision(m_pPlayer->m_PlayerRect, m_pPlayer->m_Velocity);
 }
 
 void Game::Draw() const
@@ -90,15 +91,17 @@ void Game::Draw() const
 	ClearBackground();
 	glPushMatrix();
 	{
-		m_pCamera->Transform(m_pPlayer->m_Shape);
+		m_pCamera->Transform(m_pPlayer->m_PlayerRect);
+
 		m_pLevel->DrawBackground();
 		m_pStatueManager->Draw();
 		m_pPowerUpManager->Draw();
 		m_pEnemyManager->Draw();
 		m_pPlayer->Draw();
-		m_pUI->Draw(m_pCamera->m_BottomLeft);
 	}
 	glPopMatrix();
+
+	m_pUI->Draw();
 }
 
 void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
@@ -123,11 +126,10 @@ void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
 			MovePlayerRight();
 			break;
 		case SDLK_UP:
-			m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
+			MoveToStair();
 			break;
 		case SDLK_DOWN:
 			CrouchPlayer();
-			m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
 			break;
 		case SDLK_x:
 			JumpPlayer();
@@ -151,7 +153,6 @@ void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
 void Game::ProcessKeyUpEvent(const SDL_KeyboardEvent& e)
 {
 	StopPlayer();
-	m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
 }
 
 void Game::ProcessMouseMotionEvent(const SDL_MouseMotionEvent& e)
@@ -234,16 +235,15 @@ void Game::MovePlayerRight()
 
 void Game::CrouchPlayer() const
 {
-	m_pPlayer->m_ActionState = ActionState::chrouching;
+	m_pPlayer->m_ActionState = ActionState::crouching;
 }
 
 void Game::JumpPlayer()
 {
-	if (m_pLevel->IsOnGround(m_pPlayer->m_PlayerHitBox))
+	if (m_pLevel->IsOnGround(m_pPlayer->m_PlayerRect))
 	{
 		m_pPlayer->m_ActionState = ActionState::jumping;
-		m_pPlayer->m_Velocity.y = 500;
-		m_CanPress = false;
+		m_pPlayer->m_Velocity.y = 250;
 	}
 }
 
@@ -264,6 +264,12 @@ void Game::StopPlayer()
 	m_pPlayer->m_ActionState = ActionState::Idle;
 	m_pPlayer->m_Velocity.x = 0;
 	m_CanPress = true;
+}
+
+void Game::MoveToStair()
+{
+	if (m_pLevel->IsCollidingWithStair(m_pPlayer->m_PlayerRect))
+		m_OnStairs = true;
 }
 
 void Game::DisplayInstructions()

@@ -12,11 +12,12 @@ Statue::Statue(int rows, int coloms, float framesec, float scale, int startrow, 
 	m_pTexture = new Texture("Images/PickUps.png");
 	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
 	m_spriteHeight = m_pTexture->GetHeight() / m_RowIdx;
-	m_Shape = GetShape();
-	m_Shape.left = bottomleft.x;
-	m_Shape.bottom = bottomleft.y;
+	m_PlayerRect = GetShape();
+	m_PlayerRect.left = bottomleft.x;
+	m_PlayerRect.bottom = bottomleft.y;
 	m_colomsIdx = 2;
 }
+
 
 void Statue::Update(float elapsed)
 {
@@ -30,7 +31,7 @@ void Statue::Draw()
  
 bool Statue::IsOverlapping(const Rectf rect) const
 {
-	return utils::IsOverlapping(rect, m_Shape);
+	return utils::IsOverlapping(rect, m_PlayerRect);
 }
 
 void Statue::DropItem()

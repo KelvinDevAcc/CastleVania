@@ -45,7 +45,7 @@ void  Camera::Transform(const Rectf& target)
 {
 	m_BottomLeft = Track(target);
 	clamp(m_BottomLeft);
-	glTranslatef(-m_BottomLeft.x, -m_BottomLeft.y, 0);
+	glTranslatef(-m_BottomLeft.x,0, 0);
 }
 
 void Camera::FadeIn(float duration)

@@ -12,17 +12,14 @@ StatueManager::StatueManager(SoundManager* soundmanager):
 
 StatueManager::~StatueManager()
 {
-	for (Statue* pUp : m_pItems)
-	{
-		delete pUp;
-	}
+	for (size_t i = 0; i < m_pItems.size(); ++i)
+		delete m_pItems[i];
 }
 
-Statue* StatueManager::AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager)
+void StatueManager::AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager)
 {
 	Statue* pStatue = new Statue(rows, coloms, framesec, scale, startrow, bottomleft, type, PowerUpManager);
 	m_pItems.push_back(pStatue);
-	return pStatue;
 }
 
 void StatueManager::Update(float elapsedSec) const
@@ -40,6 +37,9 @@ void StatueManager::Draw() const
 }
 void StatueManager::ClearStatueVec()
 {
+	for (size_t i = 0; i < m_pItems.size(); ++i)
+		delete m_pItems[i];
+
 	m_pItems.clear();
 }
 

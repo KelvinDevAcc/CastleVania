@@ -12,8 +12,8 @@ public:
 
 	void DrawBackground() const;
 	void HandelCollision(Rectf& actorShape, Vector2f& actorVelocity) const;
-	void HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity) const;
-	bool IsOnStairs(const Rectf& actorShape) const;
+	void HandleStairCollision(Rectf& actorShape, Vector2f& actorVelocity) const;
+	bool IsCollidingWithStair(Rectf& actorShape) const;
 	bool IsOnGround(const Rectf& actorShape) const;
 	void NextLevelPart(int levelPart);
 	Rectf GetBoundaries();

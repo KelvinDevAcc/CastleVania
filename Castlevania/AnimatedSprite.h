@@ -7,9 +7,12 @@ public:
 	AnimatedSprite(int rows, int coloms,float framesec, float scale,int startrow);
 	virtual ~AnimatedSprite();
 	virtual void Draw();
+	virtual void Draw(Point2f drawPosition, int flip);
+	
+
 	virtual void Update(float elapsedSec);
 	Rectf GetShape() const;
-	Rectf m_Shape;
+	Rectf m_PlayerRect;
 	Rectf m_Desrect;
 
 protected:

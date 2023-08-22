@@ -13,7 +13,8 @@ public:
 	};
 	UI(Player* player);
 	~UI();
-	void Draw(Point2f ActorPosition);
+
+	void Draw();
 	void GetValues();
 	void Update(float elapsedSec);
 	double m_Timer;
@@ -48,7 +49,7 @@ protected:
 	int m_PlayerBarRectY;
 
 	int m_EnemyHealt;
-	int m_EnemyBarRectX;
+	int m_EnemyBarRectX{};
 	int m_EnemyBarRectY;
 
 	Boxitem m_BoxItemType;

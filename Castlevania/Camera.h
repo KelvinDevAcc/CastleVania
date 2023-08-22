@@ -2,7 +2,7 @@
 #include "utils.h"
 
 
-class Rectf;
+struct Rectf;
 
 class Camera 
 {

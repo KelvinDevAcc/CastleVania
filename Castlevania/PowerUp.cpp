@@ -13,8 +13,8 @@ PowerUp::PowerUp(Level* level, int rows, int coloms, float scale, int startrow, 
 {
 	m_pTexture = new Texture("Images/PickUps.png");
 
-	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
-	m_spriteHeight = m_pTexture->GetHeight() / m_RowIdx;
+	m_spriteWidth = m_pTexture->GetWidth() / m_colIndex;
+	m_spriteHeight = m_pTexture->GetHeight() / m_rowIndex;
 	m_Shape = GetShape();
 	m_Shape.left = bottomleft.x;
 	m_Shape.bottom = bottomleft.y;

@@ -16,7 +16,7 @@ public:
 	StatueManager(StatueManager&&) = delete;
 	StatueManager& operator=(StatueManager&&) = delete;
 
-	Statue* AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager);
+	void AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager);
 	void Update(float elapsedSec) const;
 	void Draw() const;
 	void ClearStatueVec();

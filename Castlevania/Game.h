@@ -47,9 +47,9 @@ private:
 	LevelTransition* m_pLevelTransition;
 
 	bool m_CanPress;
-	float m_WalkSpeed;
 	int m_AudioVolume;
 	bool m_OnStairs;
+	float m_WalkSpeed;
 
 	// Private functions
 	void Initialize() const;
@@ -69,5 +69,7 @@ private:
 	void DamagePlayer() const;
 	void AttackPlayer();
 	void StopPlayer();
+	void MoveToStair();
 	static void DisplayInstructions();
+
 };

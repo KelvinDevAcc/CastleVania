@@ -18,8 +18,8 @@ protected:
 	int m_StartRow;
 	int m_StartFrame;
 
-	int m_colomsIdx;
-	int m_RowIdx;
+	int m_colIndex;
+	int m_rowIndex;
 
 	float m_spriteHeight;
 	float m_spriteWidth;

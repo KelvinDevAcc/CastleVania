@@ -27,13 +27,42 @@ AnimatedSprite::~AnimatedSprite()
 
 void AnimatedSprite::Draw() 
 {
-	m_destRect.left = m_Shape.left;
-	m_destRect.bottom = m_Shape.bottom;
-	m_destRect.width = m_Shape.width * m_Scale;
-	m_destRect.height = m_Shape.height * m_Scale;
+	m_destRect.left = m_PlayerRect.left;
+	m_destRect.bottom = m_PlayerRect.bottom;
+	m_destRect.width = m_PlayerRect.width * m_Scale;
+	m_destRect.height = m_PlayerRect.height * m_Scale;
 	m_Desrect = m_destRect;
 
 	m_pTexture->Draw(m_destRect, GetShape());
+}
+
+void AnimatedSprite::Draw(Point2f drawPosition, int flip)
+{
+
+	Rectf drawRect
+	{
+		m_PlayerRect.left - 85,
+		m_PlayerRect.bottom,
+		180,
+		73
+	};
+
+
+
+	glPushMatrix();
+	{
+		const int offset{104};
+
+		glTranslatef(drawRect.left + offset , drawRect.bottom, 0);
+		glScalef(float(flip), 1, 1);
+		glTranslatef(-drawRect.left - offset, -drawRect.bottom, 0);
+		m_pTexture->Draw(drawRect,GetShape());
+
+		//utils::SetColor(Color4f{ 0,0,1,1 });
+		//utils::DrawRect(drawRect);
+	}
+	glPopMatrix();
+
 }
 
 void AnimatedSprite::Update(float elapsedSec)

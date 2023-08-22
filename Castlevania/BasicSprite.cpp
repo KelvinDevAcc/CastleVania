@@ -5,8 +5,8 @@
 
 
 BasicSprite::BasicSprite(int rows, int coloms, float scale, int startrow) :
-	m_RowIdx{ rows },
-	m_colomsIdx{ coloms },
+	m_rowIndex{ rows },
+	m_colIndex{ coloms },
 	m_Scale{ scale },
 	m_StartRow{ startrow },
 	m_StartFrame{ 0 },
@@ -20,8 +20,8 @@ BasicSprite::BasicSprite(int rows, int coloms, float scale, int startrow) :
 }
 
 BasicSprite::BasicSprite(Texture* texture,int rows, int coloms, float scale, int startrow) :
-	m_RowIdx{ rows },
-	m_colomsIdx{ coloms },
+	m_rowIndex{ rows },
+	m_colIndex{ coloms },
 	m_Scale{ scale },
 	m_StartRow{ startrow },
 	m_StartFrame{ 0 },

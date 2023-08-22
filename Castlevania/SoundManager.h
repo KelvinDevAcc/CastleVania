@@ -15,8 +15,6 @@ public:
     SoundEffect* LoadSoundEffect(const std::string& path);
     void PlaySoundEffect(SoundEffect* soundEffect, int loops = 0) const;
     void StopAllSoundEffects() const;
-    int GetSoundEfferctVolume() const;
- 
 
     SoundStream* LoadSoundStream(const std::string& path);
     void PlaySoundStream(bool repeat = false) const;

@@ -19,6 +19,7 @@ LevelTransition::LevelTransition(Level* level, Player* player, StatueManager* st
 
 void LevelTransition::Update()
 {
+
 	switch (m_plevel->m_levelPart)
 	{
 	case 1:
@@ -42,11 +43,11 @@ void LevelTransition::Update()
 	default:
 		break;
 	}
-	if (IsOverlapping(m_pPlayer->m_PlayerHitBox, m_ColiderShape))
+	if (IsOverlapping(m_pPlayer->m_PlayerRect, m_ColiderShape))
 	{
 		PlayAnimation();
 	}
-	else if (IsOverlapping(m_pPlayer->m_PlayerHitBox, m_EndColiderShape))
+	else if (IsOverlapping(m_pPlayer->m_PlayerRect, m_EndColiderShape))
 	{
 		SwitchOnLevel();
 	}
@@ -57,8 +58,8 @@ void LevelTransition::SwitchOnLevel() const
 {
 	m_pStatueManager->ClearStatueVec();
 	m_pPowerUpManager->ClearStatueVec();
-	m_pPlayer->m_Shape.left = 10;
-	m_pPlayer->m_Shape.bottom = 90;
+	m_pPlayer->m_PlayerRect.left = 10;
+	m_pPlayer->m_PlayerRect.bottom = 90;
 	m_pPlayer->m_Velocity.x = 0;
 
 	m_plevel->NextLevelPart(m_plevel->m_levelPart);
