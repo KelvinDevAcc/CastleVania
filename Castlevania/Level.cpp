@@ -33,33 +33,32 @@ void Level::DrawBackground() const
 
 void Level::HandelCollision(Rectf& actorShape, Vector2f& actorVelocity) const
 {
-
-	Point2f topPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + actorShape.height };
-	Point2f bottomPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom - 2 };
+	const Point2f topPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + actorShape.height };
+	const Point2f bottomPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom - 2 };
 
 	Point2f midelLPoint{ actorShape.left, actorShape.bottom + actorShape.height / 2 };
 	Point2f midelRPoint{ actorShape.left + actorShape.width, actorShape.bottom + actorShape.height / 2 };
 
 
-	utils::HitInfo hitinfo{};
+	utils::HitInfo hitInfo{};
 	
 
 
 	for (size_t i = 0; i < m_pLevelCollisionPoints.size(); i++)
 	{
-		if (utils::Raycast(m_pLevelCollisionPoints[i], topPoint, bottomPoint, hitinfo))
+		if (utils::Raycast(m_pLevelCollisionPoints[i], topPoint, bottomPoint, hitInfo))
 		{
 			Vector2f rayVector{ topPoint,bottomPoint };
-			actorShape.bottom = hitinfo.intersectPoint.y;
+			actorShape.bottom = hitInfo.intersectPoint.y;
 			actorVelocity.y = 0;
 		}
 
-		if (utils::Raycast(m_pLevelCollisionPoints[i], midelLPoint, midelRPoint, hitinfo))
+		if (utils::Raycast(m_pLevelCollisionPoints[i], midelLPoint, midelRPoint, hitInfo))
 		{
 			utils::SetColor(Color4f(0.f, 1.f, 0.f, 1.f));
 
 			Vector2f rayVector{ midelLPoint,midelRPoint };
-			actorShape.left = hitinfo.intersectPoint.x + actorShape.width;
+			actorShape.left = hitInfo.intersectPoint.x + actorShape.width;
 			actorVelocity.x = 0;
 
 		}
@@ -72,16 +71,16 @@ void Level::HandelCollision(Rectf& actorShape, Vector2f& actorVelocity) const
 }
 void Level::HandelUpCollision(Rectf& actorShape, Vector2f& actorVelocity) const
 {
-	Point2f topPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + actorShape.height };
-	Point2f bottomPoint{ actorShape.left + actorShape.width / 2.0f, actorShape.bottom + 1};
+	const Point2f topPoint{ actorShape.left + actorShape.width / 2 ,actorShape.bottom + actorShape.height };
+	const Point2f bottomPoint{ actorShape.left + actorShape.width / 2, actorShape.bottom };
 
-	utils::HitInfo hitinfo{};
+	utils::HitInfo hitInfo{};
 	for (size_t i = 0; i < m_pStairsCollisionPoints.size(); i++)
 	{
-		if (utils::Raycast(m_pStairsCollisionPoints[i], topPoint, bottomPoint, hitinfo))
+		if (utils::Raycast(m_pStairsCollisionPoints[i], topPoint, bottomPoint, hitInfo))
 		{
-			Vector2f rayVector{ topPoint,bottomPoint };
-			actorShape.bottom = hitinfo.intersectPoint.y;
+			//Vector2f rayVector{ topPoint,bottomPoint };
+			actorShape.bottom = hitInfo.intersectPoint.y;
 			actorVelocity.y = 0;
 		}
 	}
@@ -91,8 +90,8 @@ bool Level::IsOnStairs(const Rectf& actorShape) const
 {
 	utils::HitInfo hitInfo{};
 
-	Point2f topPoint{ actorShape.left + actorShape.width / 2,actorShape.bottom + actorShape.height };
-	Point2f bottomPoint{ actorShape.left + actorShape.width / 2, actorShape.bottom + 1 };
+	const Point2f topPoint{ actorShape.left + actorShape.width /2 ,actorShape.bottom + actorShape.height };
+	const Point2f bottomPoint{ actorShape.left + actorShape.width/2, actorShape.bottom};
 
 
 	for (size_t i = 0; i < m_pStairsCollisionPoints.size(); i++)
@@ -110,15 +109,15 @@ bool Level::IsOnStairs(const Rectf& actorShape) const
 
 bool Level::IsOnGround(const Rectf& actorShape) const
 {
-	utils::HitInfo hitinfo{};
+	utils::HitInfo hitInfo{};
 
-	Point2f topPoint{ actorShape.left + actorShape.width / 2,actorShape.bottom + actorShape.height };
-	Point2f bottomPoint{ actorShape.left + actorShape.width / 2, actorShape.bottom - 1 };
+	const Point2f topPoint{ actorShape.left + actorShape.width / 2,actorShape.bottom + actorShape.height };
+	const Point2f bottomPoint{ actorShape.left + actorShape.width / 2, actorShape.bottom - 1 };
 
 
 	for (size_t i = 0; i < m_pLevelCollisionPoints.size(); i++)
 	{
-		if (utils::Raycast(m_pLevelCollisionPoints[i], topPoint, bottomPoint, hitinfo))
+		if (utils::Raycast(m_pLevelCollisionPoints[i], topPoint, bottomPoint, hitInfo))
 		{
 			return true;
 		}
@@ -136,18 +135,18 @@ void Level::NextLevelPart(int levelPart)
 
 	//new texture
 	m_pTexture->~Texture();
-	std::string base_stringTex = "Images/levelPart";
-	std::string file_extensionTex = ".png";
-	std::string TexFileName = base_stringTex + std::to_string(m_levelPart) + file_extensionTex;
+	const std::string base_stringTex = "Images/levelPart";
+	const std::string file_extensionTex = ".png";
+	const std::string TexFileName = base_stringTex + std::to_string(m_levelPart) + file_extensionTex;
 	m_pTexture = new Texture(TexFileName);
 	
 
 	
 	//clear vertices
 	m_pLevelCollisionPoints.clear();
-	std::string base_stringSvg = "Images/Level/levelPart";
-	std::string file_extensionSvg = ".svg";
-	std::string svgFileName = base_stringSvg + std::to_string(m_levelPart) + file_extensionSvg;
+	const std::string base_stringSvg = "Images/Level/levelPart";
+	const std::string file_extensionSvg = ".svg";
+	const std::string svgFileName = base_stringSvg + std::to_string(m_levelPart) + file_extensionSvg;
 	SVGParser::GetVerticesFromSvgFile(svgFileName, m_pLevelCollisionPoints);
 	
 	SVGParser::GetVerticesFromSvgFile("Images/Level/levelPart21.svg", m_pStairsCollisionPoints);

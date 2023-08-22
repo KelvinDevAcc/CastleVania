@@ -17,22 +17,22 @@ class Game : public BaseGame
 {
 public:
 	explicit Game(const Window& window);
-	~Game();
+	~Game() override;
 
 	Game(const Game&) = delete;
 	Game& operator=(const Game&) = delete;
 	Game(Game&&) = delete;
 	Game& operator=(Game&&) = delete;
 
-	void Update(float elapsedSec);
-	void Draw() const;
+	void Update(float elapsedSec) override;
+	void Draw() const override;
 
 	// Event handling
-	void ProcessKeyDownEvent(const SDL_KeyboardEvent& e);
-	void ProcessKeyUpEvent(const SDL_KeyboardEvent& e);
-	void ProcessMouseMotionEvent(const SDL_MouseMotionEvent& e);
-	void ProcessMouseDownEvent(const SDL_MouseButtonEvent& e);
-	void ProcessMouseUpEvent(const SDL_MouseButtonEvent& e);
+	void ProcessKeyDownEvent(const SDL_KeyboardEvent& e) override;
+	void ProcessKeyUpEvent(const SDL_KeyboardEvent& e) override;
+	void ProcessMouseMotionEvent(const SDL_MouseMotionEvent& e) override;
+	void ProcessMouseDownEvent(const SDL_MouseButtonEvent& e) override;
+	void ProcessMouseUpEvent(const SDL_MouseButtonEvent& e) override;
 
 private:
 	// Data members
@@ -47,8 +47,9 @@ private:
 	LevelTransition* m_pLevelTransition;
 
 	bool m_CanPress;
-	int m_WalkSpeed;
+	float m_WalkSpeed;
 	int m_AudioVolume;
+	bool m_OnStairs;
 
 	// Private functions
 	void Initialize() const;

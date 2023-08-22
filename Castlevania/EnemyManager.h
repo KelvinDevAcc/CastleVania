@@ -8,7 +8,7 @@ public:
     ~EnemyManager();
 
     void AddEnemy(BasicEnemy* enemy);
-    void Update(float elapsedSec);
+    void Update(float elapsedSec) const;
     void Draw() const;
     bool HitEnemy(const Rectf& rect);
     size_t Size() const;

@@ -4,19 +4,19 @@
 
 
 AnimatedSprite::AnimatedSprite(int rows, int coloms, float framesec, float scale, int startrow) :
-	m_RowIdx{ rows },
-	m_colomsIdx{ coloms },
-	m_Scale{ scale },
-	m_FrameSec{ framesec },
-	m_AccuSec{ 0 },
-	m_CurrentFrame{ 0 },
-	m_StartRow{ startrow },
-	m_StartFrame{ 0 },
-	m_spriteWidth{0},
+	m_Desrect{},
+	m_pTexture{nullptr},
+	m_StartRow{startrow},
+	m_colomsIdx{coloms},
+	m_RowIdx{rows},
 	m_spriteHeight{0},
-	m_startpos{ 0,0 },
-	m_pTexture{ nullptr },
-	m_Desrect{}
+	m_spriteWidth{0},
+	m_FrameSec{framesec},
+	m_Scale{scale},
+	m_CurrentFrame{0},
+	m_AccuSec{0},
+	m_StartFrame{0},
+	m_startpos{0, 0}
 {
 }
 

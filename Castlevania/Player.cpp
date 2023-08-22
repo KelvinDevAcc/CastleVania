@@ -12,9 +12,7 @@ Player::Player(int rows, int coloms, float framesec, float scale, int startrow, 
 	  m_playerHarts{5},
 	  m_OnGroundColor{1.0f, 0, 0, 1.0f},
 	  m_InAirColor{0, 1.0f, 0, 1.0f},
-	  m_GravityAccelaration{0, -981},
-	  m_IsOnGround{false},
-	  m_GoingLeft{false}
+	  m_GravityAccelaration{0, -981}
 {
 	m_pTexture = new Texture("Images/Playerpart1.png"); 
 	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
@@ -25,7 +23,9 @@ Player::Player(int rows, int coloms, float framesec, float scale, int startrow, 
 }
 
 void Player::Update(float elapsed, Level* level)
-{ 
+{
+	m_PlayerHitBox = Rectf(m_Shape.left + 55, m_Shape.bottom, m_Shape.width / 2 + 5, m_Shape.height + 30);
+
 	if (m_Shape.left <= level->GetBoundaries().left && m_Velocity.x > 0)
 	{
 		m_Shape.left += m_Velocity.x * elapsed;
@@ -34,17 +34,17 @@ void Player::Update(float elapsed, Level* level)
 	{
 		m_Shape.left += m_Velocity.x * elapsed;
 	}
-	if (m_Shape.left + m_Shape.width == level->GetBoundaries().left + level->GetBoundaries().width - 10)
+	if (m_Shape.left + m_Shape.width >= level->GetBoundaries().left + level->GetBoundaries().width - 10)
 	{
 		m_Shape.left += m_Velocity.x = 0;
 	}
 	m_Velocity += m_GravityAccelaration * elapsed;
 	m_Shape.bottom += m_Velocity.y * elapsed;
+
 	
 	
 	animation();
 	AnimatedSprite::Update(elapsed); 	
-	m_PlayerHitBox = Rectf(m_Shape.left+ 55, m_Shape.bottom, m_Shape.width/2 + 5, m_Shape.height + 30);
 
 	if (m_playerHealt <= 0 && m_playerLives > 0 )
 	{
@@ -59,13 +59,13 @@ void Player::Update(float elapsed, Level* level)
 void Player::Draw()
 {
 	glPushMatrix();
-	glTranslatef(m_Shape.left + 73, m_Shape.bottom, 0);
+	glTranslatef(m_Shape.left + 73, m_PlayerHitBox.bottom, 0);
 	glScalef(m_Velocity.x < 0 ? 1 : -1, 1, 1);
-	glTranslatef(-m_Shape.left - 73, -m_Shape.bottom, 0);
+	glTranslatef(-m_Shape.left -73, -m_PlayerHitBox.bottom, 0);
 	AnimatedSprite::Draw();
 	glPopMatrix();
-	//utils::DrawRect(m_Shape, true);
-	//utils::DrawRect(m_PlayerHitBox, true);
+	utils::DrawRect(m_Shape, true);
+	utils::DrawRect(m_PlayerHitBox, true);
 }
 
 void Player::Damage(int amount)
@@ -95,8 +95,6 @@ void Player::animation() {
 	case ActionState::hitting:
 		m_StartRow = 4;
 		m_colomsIdx = 5;
-		break;
-	default:
 		break;
 	}
 }

@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "EnemyManager.h"
 
-EnemyManager::EnemyManager() {
-    // Constructor implementation
+EnemyManager::EnemyManager()
+
+{
 }
 
 EnemyManager::~EnemyManager() {
@@ -15,7 +16,8 @@ void EnemyManager::AddEnemy(BasicEnemy* enemy) {
     m_pEnemies.push_back(enemy);
 }
 
-void EnemyManager::Update(float elapsedSec) {
+void EnemyManager::Update(float elapsedSec) const
+{
     for (BasicEnemy* enemy : m_pEnemies) {
         enemy->Update(elapsedSec);
     }

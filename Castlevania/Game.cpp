@@ -16,7 +16,8 @@ Game::Game(const Window& window)
 	m_pLevelTransition{new LevelTransition{m_pLevel, m_pPlayer, m_pStatueManager, m_pPowerUpManager, m_pCamera, m_pSoundManager, m_pEnemyManager}},
 	m_CanPress{ true },
 	m_WalkSpeed{ 133 },
-	m_AudioVolume{ 0 }
+	m_AudioVolume{ 0 },
+	m_OnStairs{false}
 {
 	Initialize();
 }
@@ -67,18 +68,16 @@ void Game::Update(float elapsedSec)
 	}
 	if (m_pPowerUpManager->Size() > 0)
 	{
-		m_pPowerUpManager->HitItem(m_pPlayer->m_PlayerHitBox);
+		m_pPowerUpManager->HitItem(m_pPlayer->m_Shape);
 	}
 	if (m_pUI->m_Timer == 0)
 	{
 		std::cout << "Out of time";
 	}
 
-	const Uint8* pStates = SDL_GetKeyboardState(nullptr);
-	if (pStates[SDL_SCANCODE_UP] && m_pLevel->IsOnStairs(m_pPlayer->m_PlayerHitBox))
+	if (m_OnStairs)
 	{
 		m_pLevel->HandelUpCollision(m_pPlayer->m_Shape, m_pPlayer->m_Velocity);
-		m_pLevel->HandelCollision(m_pPlayer->m_Shape, m_pPlayer->m_Velocity);
 	}
 	else
 	{
@@ -100,8 +99,6 @@ void Game::Draw() const
 		m_pUI->Draw(m_pCamera->m_BottomLeft);
 	}
 	glPopMatrix();
-
-
 }
 
 void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
@@ -125,8 +122,12 @@ void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
 		case SDLK_RIGHT:
 			MovePlayerRight();
 			break;
+		case SDLK_UP:
+			m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
+			break;
 		case SDLK_DOWN:
 			CrouchPlayer();
+			m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
 			break;
 		case SDLK_x:
 			JumpPlayer();
@@ -150,6 +151,7 @@ void Game::ProcessKeyDownEvent(const SDL_KeyboardEvent& e)
 void Game::ProcessKeyUpEvent(const SDL_KeyboardEvent& e)
 {
 	StopPlayer();
+	m_OnStairs = m_pLevel->IsOnStairs(m_pPlayer->m_Shape);
 }
 
 void Game::ProcessMouseMotionEvent(const SDL_MouseMotionEvent& e)

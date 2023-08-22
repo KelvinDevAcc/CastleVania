@@ -15,9 +15,9 @@ class Player final : public AnimatedSprite
 {
 public:
 	Player(int rows, int coloms, float framesec, float scale,int startrow, Point2f bottomleft);
-	~Player() = default;
+	~Player() override = default;
 	void Update(float elapsed, Level* level);
-	void Draw();
+	void Draw() override;
 	void animation();
 	void Damage(int amount);
 
@@ -34,10 +34,8 @@ private:
 	const Color4f m_InAirColor;
 
 	const Vector2f m_GravityAccelaration;
-	bool m_IsOnGround;
 
-	bool m_GoingLeft;
-
+	
 
 
 };
