@@ -4,8 +4,8 @@
 #include <utils.h>
 #include <iostream>
 
-Player::Player(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft)
-	: AnimatedSprite{ rows, coloms, framesec, scale, startrow },
+Player::Player(int rows, int columns, float frameSec, float scale, int startRow, Point2f bottomLeft)
+	: AnimatedSprite{ rows, columns, frameSec, scale, startRow },
 	  m_Velocity{},
 	  m_playerHealth{10},
 	  m_playerLives{3},
@@ -16,15 +16,15 @@ Player::Player(int rows, int coloms, float framesec, float scale, int startrow, 
 	  m_GravityAcceleration{-1400}
 {
 	m_pTexture = new Texture("Images/Playerpart1.png"); 
-	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
-	m_spriteHeight = m_pTexture->GetHeight() / m_RowIdx;
+	m_spriteWidth = m_pTexture->GetWidth() / static_cast<float>(m_ColomsIdx);
+	m_spriteHeight = m_pTexture->GetHeight() / static_cast<float>(m_RowIdx);
 
 	//m_PlayerRect = GetShape();
 
 	m_PlayerRect.height = 70;
 	m_PlayerRect.width = 40;
-	m_PlayerRect.left = bottomleft.x;
-	m_PlayerRect.bottom = bottomleft.y;
+	m_PlayerRect.left = bottomLeft.x;
+	m_PlayerRect.bottom = bottomLeft.y;
 }
 
 void Player::Update(float elapsed, Level* level)
@@ -61,15 +61,6 @@ void Player::Update(float elapsed, Level* level)
 void Player::Draw()
 {
 	AnimatedSprite::Draw(Point2f{ m_PlayerRect.left,m_PlayerRect.bottom }, m_Velocity.x < 0 ? 1 : -1);
-
-	utils::SetColor(Color4f{ 1,0,0,1 });
-	utils::DrawRect(m_PlayerRect, true);
-	
-	//utils::SetColor(Color4f{ 0,1,0,1 });
-	//utils::DrawRect(m_PlayerHitBox, true);
-
-	//utils::SetColor(Color4f{ 0,0,1,1 });
-	//utils::DrawRect(m_Desrect, true);
 }
 
 void Player::Damage(int amount)
@@ -77,35 +68,28 @@ void Player::Damage(int amount)
 	m_playerHealth = m_playerHealth != 0 ? m_playerHealth - amount : m_playerHealth;
 }
 
-//void Player::Move(int direction)
-//{
-//	m_ActionState = ActionState::moving;
-//	m_Velocity.x = -m_WalkSpeed;
-//	m_CanPress = false;
-//}
-
 void Player::animation() {
 	switch (m_ActionState)
 	{
-	case ActionState::Idle:
+	case action_state::Idle:
 		m_StartRow = 1;
-		m_colomsIdx = 1;
+		m_ColomsIdx = 1;
 		break;
-	case ActionState::moving:
+	case action_state::moving:
 		m_StartRow = 2;
-		m_colomsIdx = 3;
+		m_ColomsIdx = 3;
 		break;
-	case ActionState::jumping:
+	case action_state::jumping:
 		m_StartRow = 3;
-		m_colomsIdx = 1;
+		m_ColomsIdx = 1;
 		break;
-	case ActionState::crouching:
+	case action_state::crouching:
 		m_StartRow = 3;
-		m_colomsIdx = 1;
+		m_ColomsIdx = 1;
 		break;
-	case ActionState::hitting:
+	case action_state::hitting:
 		m_StartRow = 4;
-		m_colomsIdx = 5;
+		m_ColomsIdx = 5;
 		break;
 	}
 }

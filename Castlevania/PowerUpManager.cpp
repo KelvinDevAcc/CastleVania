@@ -1,4 +1,4 @@
-  #include "pch.h"
+#include "pch.h"
 #include "PowerUpManager.h"
 #include <iostream>
 
@@ -21,9 +21,9 @@ PowerUpManager::~PowerUpManager()
 	}
 }
 
-PowerUp* PowerUpManager::AddItem(int rows, int coloms, float scale, int startrow, Point2f bottomleft, PowerUp::Type Type)
+PowerUp* PowerUpManager::AddItem(int rows, int column, float scale, int startRow, Point2f bottomLeft, PowerUp::Type Type)
 {
-	PowerUp* pPowerUp =  new PowerUp(m_level, rows, coloms, scale, startrow, bottomleft,Type );
+	PowerUp* pPowerUp =  new PowerUp(m_level, rows, column, scale, startRow, bottomLeft,Type );
 	m_pItems.push_back(pPowerUp);
 	return pPowerUp;
 }
@@ -37,7 +37,7 @@ void PowerUpManager::Update(float elapsedSec) const
 
 void PowerUpManager::Draw() const
 {   
-	for (PowerUp* pUp : m_pItems) {
+	for (const PowerUp* pUp : m_pItems) {
 		pUp->Draw();
 	}
 }

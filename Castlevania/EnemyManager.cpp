@@ -1,13 +1,10 @@
 #include "pch.h"
 #include "EnemyManager.h"
 
-EnemyManager::EnemyManager()
 
-{
-}
 
 EnemyManager::~EnemyManager() {
-    for (BasicEnemy* enemy : m_pEnemies) {
+    for (const BasicEnemy* enemy : m_pEnemies) {
         delete enemy;
     }
 }

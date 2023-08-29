@@ -7,14 +7,14 @@ class Texture;
 class Statue final: public AnimatedSprite
 {
 public:
-	enum class DropType{Healt,Wip,Trowingknife};
+	enum class DropType{health,wip,throwingKnives};
 
-	Statue(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, DropType type, PowerUpManager* powerUpManager);
+	Statue(int rows, int columns, float frameSec, float scale, int startRow, Point2f bottomLeft, DropType type, PowerUpManager* powerUpManager);
 
 	void Draw() override;
-	void Update(float elpasedSec) override;
+	void Update(float elapsed) override;
 	bool IsOverlapping(const Rectf rect) const;
-	void DropItem();
+	void DropItem() const;
 
 private:
 	DropType m_Type;

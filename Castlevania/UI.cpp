@@ -11,6 +11,8 @@ UI::UI(Player* player):
 	m_pStageTexture{new Texture{"STAGE 01", "Fonts/RetroGaming.ttf", 500, Color4f(1, 1, 1, 1)}},
 	m_pHartsCounter{new Texture{"- 05", "Fonts/RetroGaming.ttf", 500, Color4f(1, 1, 1, 1)}},
 	m_plivesCounter{new Texture{"P- 03", "Fonts/RetroGaming.ttf", 500, Color4f(1, 1, 1, 1)}},
+	m_pHartTexture{new Texture{"Images/PickUps.png"}},
+
 
 	m_player{player},
 	m_LiveCounter{0},
@@ -42,6 +44,7 @@ UI::~UI()
 	delete m_pStageTexture;
 	delete m_pHartsCounter;
 	delete m_plivesCounter;
+	delete m_pHartTexture;
 }
 void UI::Update(float elapsedSec)
 {
@@ -116,6 +119,10 @@ void UI::Draw()
 	const Rectf destRectHartCounterTex{ 470,420,100,30 };
 	m_pHartsCounter->Draw(destRectHartCounterTex);
 
+	const Rectf destRectHartTexture{ 420,420,100,200 };
+	const Rectf srcRectHartTexture{ m_pHartTexture->GetWidth() / 20, m_pHartTexture->GetHeight() / 10,m_pHartTexture->GetWidth() / 20,(m_pHartTexture->GetHeight() / 10) * 2};
+	m_pHartTexture->Draw(destRectHartTexture, srcRectHartTexture);
+
 	const Rectf destRectLivesCounterTex{ 470,390,100,30 };
 	m_plivesCounter->Draw(destRectLivesCounterTex);
 
@@ -142,7 +149,7 @@ void UI::Draw()
 		utils::DrawRect(float(m_EnemyBarRectX) + (m_HealthBarWidth + m_RectSpacing) * i, float(m_EnemyBarRectY), float(m_HealthBarWidth), float(m_HealthBarHeight));
 	}
 
-
+	
 	//std::cout << m_player->m_playerHealt << std::endl;
 
 }

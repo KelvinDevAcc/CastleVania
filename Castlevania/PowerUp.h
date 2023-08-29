@@ -9,13 +9,13 @@ class PowerUp : public BasicSprite
 {
 public:
 	enum class Type{Health, Wip, Trowingknife};
-	PowerUp(Level* level, int rows, int coloms,float scale, int startrow, Point2f bottomleft, Type type);
+	PowerUp(Level* level, int rows, int columns,float scale, int startRow, Point2f bottomLeft, Type type);
 	~PowerUp() = default;
 	void Update(float elepsedSec);
 	void Draw() const;
 	bool IsOverlapping(const Rectf rect) const;
-	void LevelColision();
-	Type GetType();
+	void LevelCollision();
+	Type GetType() const;
 private: 
 	Type m_Type;
 	Rectf m_TextClip;

@@ -1,34 +1,43 @@
 #pragma once
+#include <SoundEffect.h>
 #include "Level.h"
 #include "Player.h"
 #include "StatueManager.h"
 #include "PowerUpManager.h"
-#include <SoundEffect.h>
 #include "SoundManager.h"
 #include "EnemyManager.h"
-#include "Zombie.h"
 #include "Camera.h"
-#include <utils.h>
 
-class LevelTransition 
+class Game;
+
+class LevelTransition final
 {
-public: 
-	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* PowerupManager , Camera* camera, SoundManager* soundMAnager,EnemyManager* enemymanager );
+public:
+
+	LevelTransition(Level* Level, Player* player , StatueManager* statueManager, PowerUpManager* powerUpManager , Camera* camera, SoundManager* soundMAnager,EnemyManager* enemyManager,Game* game);
 	~LevelTransition() = default;
-	void Update();
+
+	void Draw() const;
+	void Update(float elapsedSec);
 	void SwitchOnLevel() const;
-	void PlayAnimation() const;
+
 	static bool IsOverlapping(Rectf Player, Rectf hittableObject);
 
 	void AddLevelPart2() const;
 
 
+	float m_TransitionFadeOutTime{2.0f};
+	float m_TransitionPauseTime{0.5f};
+	float m_TransitionFadeInTime{1.0f};
+	float m_TransitionTimer{};
+	int m_TransitionState;
+
 
 private: 
 	Level* m_plevel;
 	Player* m_pPlayer;
-	Rectf m_ColiderShape;
-	Rectf m_EndColiderShape;
+	Game* m_pGame;
+	std::vector<Rectf> m_LevelTransitionColliders;
 	StatueManager* m_pStatueManager;
 	PowerUpManager* m_pPowerUpManager;
 	Camera* m_pCamera;

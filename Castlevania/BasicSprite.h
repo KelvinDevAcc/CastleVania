@@ -4,8 +4,8 @@
 class BasicSprite
 {
 public:
-	BasicSprite(int rows, int coloms,float scale, int startrow);
-	BasicSprite(Texture* Texture, int rows, int coloms, float scale, int startrow);
+	BasicSprite(int rows, int columns,float scale, int startrRow);
+	BasicSprite(Texture* Texture, int rows, int columns, float scale, int startRow);
 
 	~BasicSprite();
 	void Draw() const;

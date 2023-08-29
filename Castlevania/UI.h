@@ -32,6 +32,8 @@ protected:
 	Texture* m_pHartsCounter;
 	Texture* m_plivesCounter;
 
+	Texture* m_pHartTexture;
+
 	Player* m_player;
 
 

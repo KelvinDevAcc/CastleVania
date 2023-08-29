@@ -4,20 +4,20 @@
 #include "utils.h"
 
 
-PowerUp::PowerUp(Level* level, int rows, int coloms, float scale, int startrow, Point2f bottomleft, Type type):
-	BasicSprite{ rows, coloms, scale, startrow },
+PowerUp::PowerUp(Level* level, int rows, int columns, float scale, int startRow, Point2f bottomLeft, Type type):
+	BasicSprite{ rows, columns, scale, startRow },
 	m_Type{ type },
+	m_pLevel{level},
 	m_Velocity{},
-	m_GravityAccelaration{ 0,-981 },
-	m_pLevel{level}
+	m_GravityAccelaration{0, -981}
 {
 	m_pTexture = new Texture("Images/PickUps.png");
 
-	m_spriteWidth = m_pTexture->GetWidth() / m_colIndex;
-	m_spriteHeight = m_pTexture->GetHeight() / m_rowIndex;
+	m_spriteWidth = m_pTexture->GetWidth() / float(m_colIndex);
+	m_spriteHeight = m_pTexture->GetHeight() / float(m_rowIndex);
 	m_Shape = GetShape();
-	m_Shape.left = bottomleft.x;
-	m_Shape.bottom = bottomleft.y;
+	m_Shape.left = bottomLeft.x;
+	m_Shape.bottom = bottomLeft.y;
 	
 	switch (m_Type)
 	{
@@ -39,7 +39,7 @@ void PowerUp::Update(float elapsedSec)
 {
 	m_Velocity += m_GravityAccelaration * elapsedSec;
 	m_Shape.bottom += m_Velocity.y * elapsedSec;
-	LevelColision();
+	LevelCollision();
 }
 
 void PowerUp::Draw() const
@@ -52,12 +52,12 @@ bool PowerUp::IsOverlapping(const Rectf rect) const
 	return utils::IsOverlapping(rect, m_Shape);
 }
 
-void PowerUp::LevelColision()
+void PowerUp::LevelCollision()
 {
 	m_pLevel->HandelCollision(m_Shape, m_Velocity);
 }
 
-PowerUp::Type PowerUp::GetType()
+PowerUp::Type PowerUp::GetType() const
 {
 	return m_Type;
 }

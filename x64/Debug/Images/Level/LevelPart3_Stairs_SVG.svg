@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg614"
+   width="1022"
+   height="384"
+   viewBox="0 0 1022 384"
+   sodipodi:docname="LevelPart3_Stairs_SVG.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs618" />
+  <sodipodi:namedview
+     id="namedview616"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.183953"
+     inkscape:cx="511"
+     inkscape:cy="191.73058"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g620" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g620">
+    <image
+       width="1022"
+       height="384"
+       preserveAspectRatio="none"
+       xlink:href="../../../../../../../../../GitHub/CastleVania/Resources/Images/levelPart2voooink%20.png"
+       id="image622" />
+    <path
+       style="fill:#000000"
+       d="m 353.05455,226.36033 138.519,127.53884 -42.2314,-0.84462 -98.82149,-102.2 z"
+       id="path624" />
+    <path
+       style="fill:#000000"
+       d="m 803.24132,253.38843 -1.68925,-27.0281 130.07272,126.69422 h -30.40661 z"
+       id="path626" />
+  </g>
+</svg>

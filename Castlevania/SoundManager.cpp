@@ -4,7 +4,7 @@
 
 
 SoundManager::SoundManager() :
-m_soundStream{nullptr}
+    m_soundStream{ nullptr }
 {
     // Initialize the audio system
     Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 1024);

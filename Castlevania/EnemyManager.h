@@ -4,7 +4,7 @@
 
 class EnemyManager {
 public:
-    EnemyManager();
+    EnemyManager() = default;
     ~EnemyManager();
 
     void AddEnemy(BasicEnemy* enemy);

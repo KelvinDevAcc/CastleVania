@@ -17,7 +17,7 @@ public:
 	PowerUpManager(PowerUpManager&&) = delete;
 	PowerUpManager& operator=(PowerUpManager&&) = delete;
 
-	PowerUp* AddItem(int rows, int coloms, float scale, int startrow, Point2f bottomleft, PowerUp::Type Type);
+	PowerUp* AddItem(int rows, int column, float scale, int startRow, Point2f bottomLeft, PowerUp::Type Type);
 	void ClearStatueVec();
 	void Update( float elapsedSec ) const;
 	void Draw( ) const;

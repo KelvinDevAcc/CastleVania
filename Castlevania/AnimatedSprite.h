@@ -4,7 +4,7 @@
 class AnimatedSprite
 {
 public:
-	AnimatedSprite(int rows, int coloms,float framesec, float scale,int startrow);
+	AnimatedSprite(int rows, int columns,float frameRec, float scale,int startRow);
 	virtual ~AnimatedSprite();
 	virtual void Draw();
 	virtual void Draw(Point2f drawPosition, int flip);
@@ -13,18 +13,21 @@ public:
 	virtual void Update(float elapsedSec);
 	Rectf GetShape() const;
 	Rectf m_PlayerRect;
-	Rectf m_Desrect;
+	Rectf m_desrect;
+	Rectf m_AtackBox;
 
 protected:
 	Texture* m_pTexture;
 
 	int m_StartRow{};
 
-	int m_colomsIdx{};
+	int m_ColomsIdx{};
 	int m_RowIdx{};
 
 	float m_spriteHeight{};
 	float m_spriteWidth{};
+	Rectf m_DestRect{};
+
 
 private:
 	float m_FrameSec{};
@@ -34,10 +37,9 @@ private:
 
 	int m_StartFrame{};
 
-	Rectf m_destRect{};
 
 
 
-	Point2f m_startpos{};
+	Point2f m_StartPos{};
 };
 

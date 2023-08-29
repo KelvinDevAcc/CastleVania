@@ -34,6 +34,8 @@ public:
 	void ProcessMouseDownEvent(const SDL_MouseButtonEvent& e) override;
 	void ProcessMouseUpEvent(const SDL_MouseButtonEvent& e) override;
 
+	void SetAllowPlayerInput(bool allow);
+
 private:
 	// Data members
 	Camera* m_pCamera;
@@ -50,6 +52,7 @@ private:
 	int m_AudioVolume;
 	bool m_OnStairs;
 	float m_WalkSpeed;
+	bool m_AllowPlayerInput;
 
 	// Private functions
 	void Initialize() const;
@@ -65,7 +68,7 @@ private:
 	void MovePlayerLeft();
 	void MovePlayerRight();
 	void CrouchPlayer() const;
-	void JumpPlayer();
+	void JumpPlayer() const;
 	void DamagePlayer() const;
 	void AttackPlayer();
 	void StopPlayer();

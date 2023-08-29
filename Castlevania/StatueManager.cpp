@@ -2,8 +2,8 @@
 #include "StatueManager.h"
 #include <iostream>
 
-StatueManager::StatueManager(SoundManager* soundmanager):
-	m_SoundManager{soundmanager}
+StatueManager::StatueManager(SoundManager* soundManager):
+	m_SoundManager{soundManager}
 {
 	m_pItems = std::vector<Statue*>{};
 	m_pDestroySoundEffect = m_SoundManager->LoadSoundEffect("Sounds/DestroyStatic.wav");
@@ -16,9 +16,9 @@ StatueManager::~StatueManager()
 		delete m_pItems[i];
 }
 
-void StatueManager::AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager)
+void StatueManager::AddItem(int rows, int column, float frameSec, float scale, int startRow, Point2f bottomLeft, Statue::DropType type, PowerUpManager* PowerUpManager)
 {
-	Statue* pStatue = new Statue(rows, coloms, framesec, scale, startrow, bottomleft, type, PowerUpManager);
+	Statue* pStatue = new Statue(rows, column, frameSec, scale, startRow, bottomLeft, type, PowerUpManager);
 	m_pItems.push_back(pStatue);
 }
 

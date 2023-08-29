@@ -2,21 +2,21 @@
 #include "Zombie.h"
 #include <iostream>
 
-Zombie::Zombie(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, bool moveright,Player* player) :
-	BasicEnemy(rows, coloms, framesec, scale, startrow, bottomleft),
-	m_AttackSpeed{2},
+Zombie::Zombie(const int rows, const int columns, const float frameSec, float scale, const int startRow, const Point2f bottomLeft, const bool moveRight,Player* player) :
+	BasicEnemy(rows, columns, frameSec, scale, startRow, bottomLeft),
+	m_AttackSpeed{1.f},
 	m_AttackDelayTime{ 0 },
-	m_MovingRight{moveright},
+	m_MovingRight{moveRight},
 	m_player{ player },
 	m_Speed{ 100.0f }
 {
 	m_pTexture = new Texture("Images/Enemy's.png");
-	m_spriteWidth = m_pTexture->GetWidth() / m_colomsIdx;
-	m_spriteHeight = m_pTexture->GetHeight() / m_RowIdx;
+	m_spriteWidth = m_pTexture->GetWidth() / float(m_ColomsIdx);
+	m_spriteHeight = m_pTexture->GetHeight() / float(m_RowIdx);
 	m_PlayerRect = GetShape();
-	m_PlayerRect.left = bottomleft.x;
-	m_PlayerRect.bottom = bottomleft.y;
-	m_colomsIdx = 2;
+	m_PlayerRect.left = bottomLeft.x;
+	m_PlayerRect.bottom = bottomLeft.y;
+	m_ColomsIdx = 2;
 }
 
 
@@ -51,7 +51,6 @@ void Zombie::Update(float elapsed)
 		if (m_AttackDelayTime > m_AttackSpeed)
 		{
 
-			std::cout << "Player hit by enemy\n";
 			m_player->Damage(1);
 			m_AttackDelayTime = 0;
 		}
@@ -69,12 +68,10 @@ void Zombie::Update(float elapsed)
 void Zombie::Draw()
 {
 	BasicEnemy::Draw();
-	// Implement additional drawing behavior for the Zombie enemy
 }
 
 void Zombie::Attack()
 {
 	BasicEnemy::Attack();
-	// Implement attack behavior specific to the Zombie enemy
-	// For example, you can add code to control the Zombie's attack animation or logic
+	
 }

@@ -2,20 +2,20 @@
 #include "Level.h"
 #include "AnimatedSprite.h"
 
-enum class ActionState
+enum class action_state
 {
 	Idle,
 	moving,
 	jumping,
 	crouching,
 	hitting
-
 };
+
 class Player final : public AnimatedSprite
 {
 public:
 
-	Player(int rows, int coloms, float framesec, float scale,int startrow, Point2f bottomleft);
+	Player(int rows, int columns, float frameSec, float scale,int startRow, Point2f bottomLeft);
 	~Player() override = default;
 
 	void Update(float elapsed, Level* level);
@@ -26,7 +26,7 @@ public:
 
 
 	Vector2f m_Velocity{ 0.0f,0.0f };
-	ActionState m_ActionState{ ActionState::Idle };
+	action_state m_ActionState{ action_state::Idle };
 
 	int m_playerHealth;
 	int m_playerLives;

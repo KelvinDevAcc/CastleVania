@@ -5,19 +5,17 @@
 Camera::Camera(float width, float height) :
 	m_BottomLeft{},
 	m_Height{height},
-	m_NormalWidth{width},
 	m_Width{width}, m_fadeInActive(false), m_fadeOutActive(false), m_fadeTimer(0), m_fadeDuration(0)
 {
 }
 
-void Camera::SetlevelBoundaries(const Rectf& levelBounderies)
+void Camera::SetLevelBoundaries(const Rectf& levelBoundaries)
 {
-	m_LevelBoundaries = levelBounderies;
+	m_LevelBoundaries = levelBoundaries;
 }
 
 Point2f Camera::Track(const Rectf& target) const
 {
-	utils::DrawRect(target);
 	return Point2f(target.left - m_Width/2 + target.width/2, target.bottom-m_Height/2 + target.height/2);
 }
 

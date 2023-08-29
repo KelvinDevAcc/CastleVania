@@ -4,31 +4,31 @@
 #include <iostream>
 
 
-BasicSprite::BasicSprite(int rows, int coloms, float scale, int startrow) :
-	m_rowIndex{ rows },
-	m_colIndex{ coloms },
-	m_Scale{ scale },
-	m_StartRow{ startrow },
-	m_StartFrame{ 0 },
-	m_spriteWidth{ 0 },
-	m_spriteHeight{ 0 },
-	m_startpos{ 0,0 },
-	m_pTexture{ nullptr }
+BasicSprite::BasicSprite(int rows, int columns, float scale, int startrRow) :
+	m_pTexture{nullptr},
+	m_StartRow{startrRow},
+	m_StartFrame{0},
+	m_colIndex{columns},
+	m_rowIndex{rows},
+	m_spriteHeight{0},
+	m_spriteWidth{0},
+	m_Scale{scale},
+	m_startpos{0, 0}
 {
 	
 
 }
 
-BasicSprite::BasicSprite(Texture* texture,int rows, int coloms, float scale, int startrow) :
-	m_rowIndex{ rows },
-	m_colIndex{ coloms },
-	m_Scale{ scale },
-	m_StartRow{ startrow },
-	m_StartFrame{ 0 },
-	m_spriteWidth{ 0 },
-	m_spriteHeight{ 0 },
-	m_startpos{ 0,0 },
-	m_pTexture{ texture }
+BasicSprite::BasicSprite(Texture* texture,int rows, int columns, float scale, int startRow) :
+	m_pTexture{texture},
+	m_StartRow{startRow},
+	m_StartFrame{0},
+	m_colIndex{columns},
+	m_rowIndex{rows},
+	m_spriteHeight{0},
+	m_spriteWidth{0},
+	m_Scale{scale},
+	m_startpos{0, 0}
 {
 
 
@@ -55,7 +55,7 @@ Rectf BasicSprite::GetShape() const
 	Rectf srcRect{};
 	srcRect.width = m_spriteWidth;
 	srcRect.height = m_spriteHeight;
-	srcRect.left = m_spriteWidth * m_StartFrame;
-	srcRect.bottom = m_spriteHeight * m_StartRow;
+	srcRect.left = m_spriteWidth * static_cast<float>(m_StartFrame);
+	srcRect.bottom = m_spriteHeight * static_cast<float>(m_StartRow);
 	return srcRect;
 }

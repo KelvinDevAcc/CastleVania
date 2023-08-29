@@ -6,17 +6,17 @@
 #include "structs.h"
 
 
-class StatueManager
+class StatueManager final
 {
 public:
-	StatueManager(SoundManager* soundmanager);
+	StatueManager(SoundManager* soundManager);
 	~StatueManager();
 	StatueManager(const StatueManager&) = delete;
 	StatueManager& operator=(const StatueManager&) = delete;
 	StatueManager(StatueManager&&) = delete;
 	StatueManager& operator=(StatueManager&&) = delete;
 
-	void AddItem(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, Statue::DropType type, PowerUpManager* PowerUpManager);
+	void AddItem(int rows, int column, float frameSec, float scale, int startRow, Point2f bottomLeft, Statue::DropType type, PowerUpManager* PowerUpManager);
 	void Update(float elapsedSec) const;
 	void Draw() const;
 	void ClearStatueVec();

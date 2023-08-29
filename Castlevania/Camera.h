@@ -9,7 +9,7 @@ class Camera
 public:
 	Camera( float width, float height);
 	~Camera() = default;
-	void SetlevelBoundaries(const Rectf& levelBounderies);
+	void SetLevelBoundaries(const Rectf& levelBoundaries);
 	void Transform(const Rectf& target);
 	Point2f Track(const Rectf& target) const;
 	void clamp(Point2f& bottomLeftPos) const;
@@ -23,7 +23,6 @@ public:
 private:
 	float m_Height;
 	Rectf m_LevelBoundaries;
-	const float m_NormalWidth;
 	float m_Width;
 
 

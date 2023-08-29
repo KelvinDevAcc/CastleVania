@@ -6,8 +6,8 @@
 class Zombie final : public BasicEnemy
 {
 public:
-	Zombie(int rows, int coloms, float framesec, float scale, int startrow, Point2f bottomleft, bool moveright,Player* player);
-	~Zombie() = default;
+	Zombie(int rows, int columns, float frameSec, float scale, int startRow, Point2f bottomLeft, bool moveRight,Player* player);
+	~Zombie() override = default;
 	virtual void Update(float elapsed) override;
 	virtual void Draw() override;
 	virtual void Attack() override;
