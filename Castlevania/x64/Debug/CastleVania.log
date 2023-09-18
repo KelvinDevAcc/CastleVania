@@ -1,8 +1,66 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MiniGamePart1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  AnimatedSprite.cpp
+  BasicEnemy.cpp
+  BasicSprite.cpp
+  Camera.cpp
+  EnemyManager.cpp
+  LevelTransition.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\xmemory(682,68): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(829): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,int,int,int>(_Alloc &,_Objty *const ,int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Rectf>,
+              _Ty=Rectf,
+              _Objty=Rectf
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(840): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,int,int,int>(_Alloc &,_Objty *const ,int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Rectf>,
+              _Ty=Rectf,
+              _Objty=Rectf
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(816): message : see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<int,int,int,int>(int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Ty=Rectf
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(822): message : see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<int,int,int,int>(int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Ty=Rectf
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(902): message : see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int,int,int,int>(int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Ty=Rectf
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.33.31629\include\vector(904): message : see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int,int,int,int>(int &&,int &&,int &&,int &&)' being compiled
+          with
+          [
+              _Ty=Rectf
+          ]
+C:\Users\adela\Documents\GitHub\CastleVania\Castlevania\LevelTransition.cpp(20): message : see reference to function template instantiation 'void std::vector<Rectf,std::allocator<Rectf>>::emplace_back<int,int,int,int>(int &&,int &&,int &&,int &&)' being compiled
+  Player.cpp
+  Game.cpp
+  Level.cpp
+  main.cpp
+  pch.cpp
+  PowerUp.cpp
   PowerUpManager.cpp
-  CastleVania.vcxproj -> C:\Users\adela\Documents\Howest\01.Howst_project_and_assingments_1_semester\Programming\Programming 02\fix 2.1\CastleVania\x64\Debug\Castelvania.exe
+  SoundManager.cpp
+  Statue.cpp
+  StatueManager.cpp
+  UI.cpp
+  Zombie.cpp
+  CastleVania.vcxproj -> C:\Users\adela\Documents\GitHub\CastleVania\x64\Debug\Castelvania.exe
   0 File(s) copied
   0 File(s) copied
   0 File(s) copied
   0 File(s) copied
-  0 File(s) copied
+  C:\Users\adela\Documents\GitHub\CastleVania\Resources\Images\Level\levelPart31.svg
+  1 File(s) copied
